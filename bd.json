@@ -1,49 +1,22 @@
 [
     {
-        "id": "75bfa0c166b82d9d",
-        "type": "ui_gauge",
+        "id": "af2ff683fae36792",
+        "type": "function",
         "z": "a75bc4de95dbc7fe",
         "name": "",
-        "group": "941e796579f1946e",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Gauge BD",
-        "label": "Celsius",
-        "format": "{{msg.payload}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#00b500",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "diff": false,
-        "className": "",
-        "x": 1050,
+        "func": "// var rn = Math.floor(Math.random() * 1000);\n// msg.payload = rn.toString();\nmsg.payload = msg.payload[msg.payload.length-1].tempCelsius;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
         "y": 320,
-        "wires": []
-    },
-    {
-        "id": "941e796579f1946e",
-        "type": "ui_group",
-        "name": "Temperatura",
-        "tab": "fcec02939ded063c",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "fcec02939ded063c",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
+        "wires": [
+            [
+                "75bfa0c166b82d9d",
+                "a3b69ff61f7b0ff2"
+            ]
+        ]
     }
 ]
