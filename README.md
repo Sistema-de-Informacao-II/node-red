@@ -1,5 +1,5 @@
 # node-red
 
-## Dependencias Node Red (Manage Palete)
+## Dependencias Node Red (Manage Palette)
 - node-red-node-mysql
 - node-red-dashboard
