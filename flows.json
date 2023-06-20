@@ -85,7 +85,8 @@
             [
                 "33e1b2cb72fb13ce",
                 "fa6c634a63cd96c0",
-                "1f98e1bfb2541fe9"
+                "1f98e1bfb2541fe9",
+                "5a0c758325b7a09f"
             ]
         ]
     },
@@ -254,6 +255,91 @@
         ]
     },
     {
+        "id": "de8b94a80f0d995b",
+        "type": "debug",
+        "z": "d3c8aa8693638d64",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e31e6279c5977a02",
+        "type": "telegram sender",
+        "z": "d3c8aa8693638d64",
+        "name": "Telegram sender",
+        "bot": "767baa2473b07e06",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 400,
+        "wires": [
+            [
+                "a7803499d5bd3887"
+            ]
+        ]
+    },
+    {
+        "id": "5a0c758325b7a09f",
+        "type": "function",
+        "z": "d3c8aa8693638d64",
+        "name": "function 1",
+        "func": "msg.payload={\n    content: msg.payload[0].umidade.toString(),\n    type: \"message\",\n    chatId: 1682533590\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 300,
+        "wires": [
+            [
+                "e31e6279c5977a02"
+            ]
+        ]
+    },
+    {
+        "id": "a7803499d5bd3887",
+        "type": "debug",
+        "z": "d3c8aa8693638d64",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "399b2ad1bc79b074",
+        "type": "telegram receiver",
+        "z": "d3c8aa8693638d64",
+        "name": "Telegram receiver",
+        "bot": "10afc47c0f7d5782",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 550,
+        "y": 500,
+        "wires": [
+            [
+                "de8b94a80f0d995b"
+            ],
+            []
+        ]
+    },
+    {
         "id": "cb307fb1c929b6f6",
         "type": "MySQLdatabase",
         "name": "Conexão com BD",
@@ -284,6 +370,56 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "767baa2473b07e06",
+        "type": "telegram bot",
+        "botname": "Pedro's Bot",
+        "usernames": "HotSexyMachineBot",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "10afc47c0f7d5782",
+        "type": "telegram bot",
+        "botname": "Pedro's Bot",
+        "usernames": "HotSexyMachineBot",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
     },
     {
         "id": "5632eaffcf9ba65b",
