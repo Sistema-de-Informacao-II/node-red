@@ -1,0 +1,296 @@
+[
+    {
+        "id": "d3c8aa8693638d64",
+        "type": "tab",
+        "label": "bd",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c6d3eba5429febf4",
+        "type": "inject",
+        "z": "d3c8aa8693638d64",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "SELECT tempCelsius, umidade FROM dadosTU WHERE idSensor = 66 ORDER BY dataHora DESC LIMIT 1",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 140,
+        "wires": [
+            [
+                "dcf62bf339ddc452"
+            ]
+        ]
+    },
+    {
+        "id": "fa6c634a63cd96c0",
+        "type": "function",
+        "z": "d3c8aa8693638d64",
+        "name": "getTempCelsius",
+        "func": "msg.payload = msg.payload[0].tempCelsius;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 140,
+        "wires": [
+            [
+                "38df458782504121",
+                "64e5d8a6e34fa60c"
+            ]
+        ]
+    },
+    {
+        "id": "33e1b2cb72fb13ce",
+        "type": "debug",
+        "z": "d3c8aa8693638d64",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "dcf62bf339ddc452",
+        "type": "mysql",
+        "z": "d3c8aa8693638d64",
+        "mydb": "cb307fb1c929b6f6",
+        "name": "",
+        "x": 470,
+        "y": 140,
+        "wires": [
+            [
+                "33e1b2cb72fb13ce",
+                "fa6c634a63cd96c0",
+                "1f98e1bfb2541fe9"
+            ]
+        ]
+    },
+    {
+        "id": "38df458782504121",
+        "type": "ui_gauge",
+        "z": "d3c8aa8693638d64",
+        "name": "",
+        "group": "fe865ddb6ac2e075",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge BD",
+        "label": "Celsius",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 990,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1f98e1bfb2541fe9",
+        "type": "function",
+        "z": "d3c8aa8693638d64",
+        "name": "getUmidade",
+        "func": "msg.payload = msg.payload[0].umidade;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 750,
+        "y": 220,
+        "wires": [
+            [
+                "8b3caaa21e27d7ca",
+                "17a9f67568613bd8"
+            ]
+        ]
+    },
+    {
+        "id": "64e5d8a6e34fa60c",
+        "type": "ui_chart",
+        "z": "d3c8aa8693638d64",
+        "name": "",
+        "group": "fe865ddb6ac2e075",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Chart BD",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 980,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b3caaa21e27d7ca",
+        "type": "ui_gauge",
+        "z": "d3c8aa8693638d64",
+        "name": "",
+        "group": "e5b91d4039db2b34",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gauge BD",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "17a9f67568613bd8",
+        "type": "ui_chart",
+        "z": "d3c8aa8693638d64",
+        "name": "",
+        "group": "e5b91d4039db2b34",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Chart BD",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 980,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb307fb1c929b6f6",
+        "type": "MySQLdatabase",
+        "name": "Conexão com BD",
+        "host": "10.16.1.20",
+        "port": "3306",
+        "db": "topicos",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "fe865ddb6ac2e075",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "5632eaffcf9ba65b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e5b91d4039db2b34",
+        "type": "ui_group",
+        "name": "Umidade",
+        "tab": "5632eaffcf9ba65b",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5632eaffcf9ba65b",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
