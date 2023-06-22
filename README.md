@@ -7,3 +7,6 @@
 
 ## Bot Telegram
 @BotFather (https://t.me/BotFather)
+
+## Links uteis
+https://youtu.be/G1ktv4zeDhc
