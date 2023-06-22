@@ -79,14 +79,14 @@
         "z": "d3c8aa8693638d64",
         "mydb": "cb307fb1c929b6f6",
         "name": "",
-        "x": 470,
-        "y": 140,
+        "x": 250,
+        "y": 280,
         "wires": [
             [
-                "33e1b2cb72fb13ce",
-                "fa6c634a63cd96c0",
+                "5a0c758325b7a09f",
                 "1f98e1bfb2541fe9",
-                "5a0c758325b7a09f"
+                "fa6c634a63cd96c0",
+                "33e1b2cb72fb13ce"
             ]
         ]
     },
@@ -114,8 +114,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 990,
-        "y": 120,
+        "x": 1230,
+        "y": 80,
         "wires": []
     },
     {
@@ -133,8 +133,8 @@
         "y": 220,
         "wires": [
             [
-                "8b3caaa21e27d7ca",
-                "17a9f67568613bd8"
+                "17a9f67568613bd8",
+                "8b3caaa21e27d7ca"
             ]
         ]
     },
@@ -176,8 +176,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 980,
-        "y": 180,
+        "x": 1220,
+        "y": 140,
         "wires": [
             []
         ]
@@ -193,7 +193,7 @@
         "height": 0,
         "gtype": "gage",
         "title": "Gauge BD",
-        "label": "",
+        "label": "Umidade",
         "format": "{{msg.payload}}",
         "min": 0,
         "max": "100",
@@ -206,8 +206,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 970,
-        "y": 260,
+        "x": 1210,
+        "y": 220,
         "wires": []
     },
     {
@@ -248,8 +248,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 980,
-        "y": 320,
+        "x": 1220,
+        "y": 280,
         "wires": [
             []
         ]
@@ -267,8 +267,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
-        "y": 480,
+        "x": 1240,
+        "y": 520,
         "wires": []
     },
     {
@@ -279,8 +279,8 @@
         "bot": "767baa2473b07e06",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 770,
-        "y": 400,
+        "x": 890,
+        "y": 420,
         "wires": [
             [
                 "a7803499d5bd3887"
@@ -291,14 +291,14 @@
         "id": "5a0c758325b7a09f",
         "type": "function",
         "z": "d3c8aa8693638d64",
-        "name": "function 1",
-        "func": "msg.payload={\n    content: msg.payload[0].umidade.toString(),\n    type: \"message\",\n    chatId: 1682533590\n};\nreturn msg;",
+        "name": "getStatus to bot",
+        "func": "msg.payload={\n    content: \"Umidade: \" + msg.payload[0].umidade.toString() + \", Temperatura: \" + \n    msg.payload[0].tempCelsius.toString(),\n    type: \"message\",\n    chatId: 1682533590\n};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 600,
+        "x": 620,
         "y": 300,
         "wires": [
             [
@@ -318,8 +318,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 960,
-        "y": 400,
+        "x": 1200,
+        "y": 420,
         "wires": []
     },
     {
@@ -330,8 +330,8 @@
         "bot": "10afc47c0f7d5782",
         "saveDataDir": "",
         "filterCommands": false,
-        "x": 550,
-        "y": 500,
+        "x": 870,
+        "y": 540,
         "wires": [
             [
                 "de8b94a80f0d995b"
