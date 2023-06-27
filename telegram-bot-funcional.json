@@ -1,0 +1,150 @@
+[
+    {
+        "id": "4996f7812c42a386",
+        "type": "tab",
+        "label": "telegram-bot",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a2de265fad112c0b",
+        "type": "inject",
+        "z": "4996f7812c42a386",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "1bf01da1d3430321"
+            ]
+        ]
+    },
+    {
+        "id": "1bf01da1d3430321",
+        "type": "function",
+        "z": "4996f7812c42a386",
+        "name": "function 2",
+        "func": "msg.payload = {\n    chatId: 5508563884,\n    type: 'message',\n    content: 'Ola telegram'\n    }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "4c52d5c4f6238ea3"
+            ]
+        ]
+    },
+    {
+        "id": "4c52d5c4f6238ea3",
+        "type": "telegram sender",
+        "z": "4996f7812c42a386",
+        "name": "",
+        "bot": "256f5ae1f5446768",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 180,
+        "wires": [
+            [
+                "1719ae378f5d20a3"
+            ]
+        ]
+    },
+    {
+        "id": "1719ae378f5d20a3",
+        "type": "debug",
+        "z": "4996f7812c42a386",
+        "name": "debug Sender",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3a5d2bc0697afc2c",
+        "type": "telegram receiver",
+        "z": "4996f7812c42a386",
+        "name": "",
+        "bot": "256f5ae1f5446768",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "0e35ee4cb05310fe"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "0e35ee4cb05310fe",
+        "type": "debug",
+        "z": "4996f7812c42a386",
+        "name": "debug Receiver",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "256f5ae1f5446768",
+        "type": "telegram bot",
+        "botname": "Jhon Bot",
+        "usernames": "",
+        "chatids": "5508563884",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]
