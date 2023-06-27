@@ -16,3 +16,6 @@ https://api.telegram.org/botCHAVEDOSEUBOT/getUpdates
 
 ex.: Jhon Bot
 https://api.telegram.org/bot6298188581:AAHqDbEnnGU-pKjPuoWr2xOrJmDwmki_JuQ/getUpdates
+
+# Observação
+Verificar configuração de DNS para que o Telegram funcione normalmente. DNS em que o telegram funcionou: 208.67.222.222
