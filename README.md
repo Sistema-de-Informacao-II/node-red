@@ -13,5 +13,6 @@ https://youtu.be/G1ktv4zeDhc
 
 # Obter chatId
 https://api.telegram.org/botCHAVEDOSEUBOT/getUpdates
+
 ex.: Jhon Bot
 https://api.telegram.org/bot6298188581:AAHqDbEnnGU-pKjPuoWr2xOrJmDwmki_JuQ/getUpdates
